@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+ <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+ <meta name="theme-color" content="#2658d7"><title>气球搭子 · 组装手册</title>
+ <meta name="description" content="跟着步骤接好腕带按钮、电机和气球声光吊舱，再亲手把它们装进盒子。">
+ <link rel="stylesheet" href="guide.css">
+</head>
+<body>
+ <a href="#main" class="skip">跳到主要内容</a>
+ <header><div class="header-inner">
+   <a class="brand" href="#home" aria-label="气球搭子 · 首页">
+    <svg viewBox="0 0 48 48" width="46" height="46" aria-hidden="true"><rect width="48" height="48" rx="15" fill="#2658d7"/><path d="M25 30c-5 0-10-5.2-10-11.1C15 13 19 9.6 24.7 9.6S34.5 14 34.5 19c0 6.2-4.2 11-9.5 11Zm-.1 0-1.7 3.1h3.3z" fill="none" stroke="white" stroke-width="2.1" stroke-linejoin="round"/><path d="M25 33.4c1.3 4-2.7 6.2-4.3 4.8" fill="none" stroke="white" stroke-width="2" stroke-linecap="round"/><path d="M19.1 18.2c.4-2.6 1.9-4.1 4.5-4.8" fill="none" stroke="#abddff" stroke-width="2" stroke-linecap="round"/></svg>
+    <span>气球搭子<small>组装手册</small></span></a>
+   <nav aria-label="主导航"><a id="nav-guide" href="#guide">装配步骤</a><a id="nav-wires" href="#wires">接线速查</a><a id="nav-kit" href="#kit">零件与下载</a></nav>
+   <button id="zoomText" class="type-button" type="button" aria-pressed="false"><b>Aa</b> 大字</button>
+ </div></header>
+ <main id="main" class="frame">
+   <section id="homeview" aria-label="组装指南">
+    <div class="hero">
+     <div class="hero-copy"><div class="hero-label"><i></i> 腕带与气球装配指南</div>
+      <h1>亲手组装你的<br><em>气球机器人</em></h1>
+      <p>从认清第一根线开始。跟着图接好电机、按钮和灯环，听到提示音，再把它们装进盒子。</p>
+      <div class="hero-cta"><button id="start" class="primary" type="button">开始第一步</button><a href="#kit">查看零件清单</a></div>
+     </div>
+     <figure class="hero-art"><img src="assets/overview.webp" alt="腕带上的卷线盒与连接在气球下方的声光吊舱，两个模块使用独立电池。"></figure>
+    </div>
+    <section id="guide" tabindex="-1" class="workspace" aria-label="逐步装配">
+      <div class="worktitle"><div><p class="eyebrow">跟着做</p><h2>我的装配工作台</h2></div><span id="progressLabel" class="prog-label"></span></div>
+      <div class="workgrid">
+       <aside class="rail"><h3>安装顺序</h3><div id="chapters"></div><div class="rail-progress"><progress id="progressBar" max="1" value="0"></progress><small>进度保存在此浏览器</small></div></aside>
+       <article class="step-card" id="stepCard" tabindex="-1"><noscript>请在浏览器设置中开启 JavaScript，以使用逐步安装指南。</noscript></article>
+      </div>
+    </section>
+   </section>
+   <section id="wiresview" class="secondary" hidden tabindex="-1"><p class="eyebrow">工作台参考</p><h1>接线速查</h1><p class="intro">先选盒子，再逐行对照零件上的字母。表里的名称和装配步骤相同。</p><div class="filterbar" id="wireControls"></div><div id="wireTables"></div></section>
+   <section id="kitview" class="secondary" hidden tabindex="-1"><p class="eyebrow">上手前准备</p><h1>零件与下载</h1><p class="intro">把两套零件分开放，拿到一件就勾一件。测试程序和打印文件在清单后面。</p><div id="kitContents"></div></section>
+   <section id="doneview" class="secondary" hidden tabindex="-1"><p class="eyebrow">装配记录</p><h1 id="finishTitle">桌面联测完成</h1><p class="intro" id="finishMsg"></p><div id="finishList"></div><a href="#guide" class="primary">回到工作台</a></section>
+ </main>
+ <footer><div class="frame"><span>气球搭子 · 组装手册</span><a href="#kit">文件与资料</a></div></footer>
+ <dialog id="lightbox"><div class="dialogbar"><strong id="dialogTitle">查看结构</strong><button id="closeDialog" type="button">关闭</button></div><img id="dialogImg" alt=""></dialog>
+ <script src="wrist-data.js" defer></script><script src="balloon-data.js" defer></script><script src="guide-data.js" defer></script><script src="guide.js" defer></script>
+</body></html>
