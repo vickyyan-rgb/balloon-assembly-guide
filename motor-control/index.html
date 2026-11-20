@@ -1,0 +1,10 @@
+<!doctype html>
+<html lang="zh-CN"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>腕带电机 · 上传与连接</title>
+<style>body{font:17px/1.7 system-ui,sans-serif;color:#163934;background:#edf4f1;max-width:38rem;margin:5vh auto;padding:1.25rem}section{background:white;border-radius:1rem;padding:1rem 1.4rem;margin:1rem 0}h1,h2{line-height:1.3}h2{font-size:1.2rem}a{color:#006952}pre{overflow:auto;background:#eff4f2;padding:.8rem}.launch{display:inline-block;background:#166753;color:white;padding:.5rem 1rem;border-radius:.6rem}</style>
+<h1>腕带电机遥控</h1>
+<section><h2>1 · 上传固件</h2><p><a href="https://github.com/vickyyan-rgb/balloon-assembly-guide/raw/refs/heads/main/downloads/Motor-Control-Handoff.zip">下载网页、固件和上传脚本 ZIP</a>，解压后用 VS Code 打开包含 <code>upload.ps1</code> 的文件夹。在 PowerShell 终端列出串口，然后用腕带的实际端口替换 COM7。</p>
+<pre>.\upload.ps1 -ListPorts
+.\upload.ps1 -Port COM7</pre><a href="https://github.com/vickyyan-rgb/balloon-assembly-guide/blob/main/motor-control/README.md">Arduino IDE 安装步骤和接线说明</a></section>
+<section><h2>2 · 连接腕带 Wi-Fi</h2><p>给 Feather 通电，在手机或电脑的 Wi-Fi 设置选择 <b>Balloon-Motor</b>，密码 <code>PebbleRun27</code>。出现「无互联网」时选择保持连接。</p></section>
+<section><h2>3 · 打开遥控器</h2><p>连上腕带后打开下方地址。先用默认的 0.5 秒验证收放方向。</p><a class="launch" href="http://192.168.4.1/">打开腕带遥控器</a><p><code>http://192.168.4.1/</code></p></section></html>

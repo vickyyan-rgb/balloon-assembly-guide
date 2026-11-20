@@ -61,7 +61,14 @@ void setup() {
   digitalWrite(in1, LOW); digitalWrite(in2, LOW);
   if (!ledcAttach(in1, 20000, 8) || !ledcAttach(in2, 20000, 8)) return;
   lock = xSemaphoreCreateMutex();
-  if (!lock || !WiFi.softAP("Balloon-Motor", "PebbleRun27")) return;
+  if (!lock) { Serial.println("Motor lock failed"); return; }
+  IPAddress address(192, 168, 4, 1);
+  if (!WiFi.mode(WIFI_AP) ||
+      !WiFi.softAPConfig(address, address, IPAddress(255, 255, 255, 0)) ||
+      !WiFi.softAP("Balloon-Motor", "PebbleRun27")) {
+    Serial.println("Balloon-Motor Wi-Fi startup failed");
+    return;
+  }
   if (xTaskCreate(motorWatch, "motor-stop", 4096, nullptr, 3, nullptr) != pdPASS) return;
   server.on("/", HTTP_GET, [](){server.send_P(200,"text/html; charset=utf-8",page);});
   server.on("/move", HTTP_POST, moveMotor);
@@ -75,6 +82,7 @@ void setup() {
     server.send(200,"application/json",String(state));
   });
   server.begin();
-  Serial.println(WiFi.softAPIP());
+  Serial.print("Balloon-Motor ready: http://"); Serial.println(WiFi.softAPIP());
 }
 void loop() { server.handleClient(); delay(2); }
+

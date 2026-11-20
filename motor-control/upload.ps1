@@ -4,6 +4,9 @@ $cli = (Get-Command arduino-cli -ErrorAction SilentlyContinue).Source
 if (!$cli) {
     $cli = Join-Path $env:LOCALAPPDATA 'Programs/Arduino IDE/resources/app/lib/backend/resources/arduino-cli.exe'
 }
+if (!(Test-Path -LiteralPath $cli)) {
+    $cli = Join-Path $env:ProgramFiles 'Arduino IDE/resources/app/lib/backend/resources/arduino-cli.exe'
+}
 if (!(Test-Path -LiteralPath $cli)) { throw 'Install Arduino CLI on PATH or the Arduino IDE 2 user installation.' }
 $config = Join-Path $env:USERPROFILE '.arduinoIDE/arduino-cli.yaml'
 $options = @()
@@ -20,3 +23,4 @@ if (!$VerifyOnly) {
 }
 & $cli @actionArgs @options $sketch
 exit $LASTEXITCODE
+

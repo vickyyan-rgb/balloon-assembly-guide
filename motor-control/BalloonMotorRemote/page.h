@@ -27,14 +27,15 @@ function draw(){el('down').disabled=el('up').disabled=sending||!online||dir!==0;
 el('status').textContent=!online?'未连接':dir===1?'降落中':dir===-1?'升起中':'已连接 · 待机';}
 el('speed').oninput=()=>el('sv').textContent=el('speed').value+'%';
 el('duration').oninput=()=>el('tv').textContent=(el('duration').value/1000).toFixed(1)+' 秒';
-async function state(){const id=++refreshId;try{const r=await fetch('/state',{cache:'no-store',signal:AbortSignal.timeout(2200)});
+async function state(){const id=++refreshId; const controller=new AbortController(); const timer=setTimeout(()=>controller.abort(),2200); try{const r=await fetch('/state',{cache:'no-store',signal:controller.signal});
 if(!r.ok)throw Error();const value=await r.json();if(id!==refreshId)return;dir=value;online=true;}
-catch{if(id!==refreshId)return;online=false;}draw();}
+catch{if(id!==refreshId)return;online=false;}finally{clearTimeout(timer);}draw();}
 async function action(which){sending=true;draw();try{const stop=which==='stop';
 const ms=el('duration').value; const r=await fetch(stop?'/stop':'/move',{method:'POST',body:stop?null:new URLSearchParams({dir:which,speed:el('speed').value,ms})});
 el('message').textContent=r.ok?(stop?'已发出停止指令。':ms==='0'?'时长为 0 秒，电机保持停止。':'指令已接收，到时自动停止。'):'请先松开实体按钮，待电机停止后再试。';}
 catch{el('message').textContent='连接中断，请检查腕带 Wi-Fi。';}
 finally{await state();sending=false;draw();}}
 for(const k of ['down','up','stop'])el(k).onclick=()=>action(k);
-state();setInterval(state,700);
+async function poll(){await state();setTimeout(poll,700);} poll();
 </script></html>)HTML";
+
