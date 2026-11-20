@@ -16,6 +16,7 @@
 
 | 下载 | 用途 |
 | --- | --- |
+| [圆石腕盒外形模型](downloads/wrist-pebble-form/) · [下载三件 STL](downloads/Wrist-Pebble-Form-STL.zip) | 约 91 × 65 × 55 mm，用于观察佩戴比例、中段合盖和底部穿带 |
 | [腕盒 V8 打印包](downloads/Wristband-V8-STL.zip) | 一体主壳、齐平底板、侧检修盖和装配图 |
 | [紧凑声舱打印包](downloads/Balloon-Pod-STL.zip) | 出声外壳、三层抽屉和装配图 |
 | [WristBench.ino](downloads/WristBench.ino) | 测试腕带按钮、短时电机点动和无线呼叫 |
