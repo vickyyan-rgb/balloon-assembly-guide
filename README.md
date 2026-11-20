@@ -34,3 +34,8 @@ STL 使用毫米，按 100% 比例导入切片软件。先用实物核对电池�
 这是一个无需构建的静态网站。`wrist-data.js` 和 `balloon-data.js` 分别存放两套模块的装配步骤，`guide-data.js` 存放零件清单与下载入口。`assets/` 存放结构图，`downloads/` 存放可下载文件。
 
 GitHub Pages 从 `main` 分支的根目录发布。修改后提交到 `main`，即可在仓库的 **Actions** 或 **Settings → Pages** 查看发布状态。
+
+## 腕带遥控与弹簧按钮打印件
+
+- [电机遥控源码和 USB 上传步骤](motor-control/README.md) · [下载完整交接 ZIP](downloads/Motor-Control-Handoff.zip)
+- [缩短 10 mm 的腕盒与弹簧按钮，8 个 STL 和装配说明](downloads/wrist-short-spring/README.md) · [下载打印套件](downloads/Wrist-Short-10mm-Spring-Button.zip)
